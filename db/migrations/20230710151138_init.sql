@@ -10,7 +10,7 @@ create table "count" (
   "value" bigint not null default 0
 );
 
--- usage: curl -XGET http://localhost:3000/rpc/get?key=somekey => {"value": 1}
+-- usage: curl -XGET http://localhost:3000/rpc/get?key=somekey => 1
 create function "api"."get"("key" varchar) returns bigint as
 $$
   select "value"
