@@ -1,0 +1,18 @@
+version: '3'
+services:
+  postgrest:
+    image: postgrest/postgrest
+    ports:
+      - 3000:3000
+    environment:
+      PGRST_DB_URI: "postgres://countapi:${POSTGRES_PASSWORD}@postgres:5432/countapi"
+      PGRST_DB_SCHEMA: api
+      PGRST_DB_ANON_ROLE: guest
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: countapi
+      POSTGRES_USER: countapi
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
